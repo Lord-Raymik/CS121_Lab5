@@ -16,7 +16,7 @@ int main() {
 	int countSum;
 
 	//the main algorithm
-	inFile.open("data.csv");
+	inFile.open("data.csv"); //open data.csv
 	bool keepGoing = true;
 	while (keepGoing) {
 		//cleaning out the converter
@@ -30,23 +30,21 @@ int main() {
 			ss.str(currentLine);
 
 			getline(ss, sCount, ',');
-			std::cout << "sCount 1: " << sCount << std::endl;
 			converter.str(sCount);
 			converter >> count1;
 			getline(ss, sCount, ',');
-			std::cout << "sCount 2: " << sCount << std::endl;
 			converter.str(sCount);
 			converter >> count2;
+			std::cout << count2 << std::endl;
 
 			getline(ss, text);
 			countSum = count1 + count2;
-			std::cout << "c1: " << count1 << ", c2: " << count2 << ", cs: " << countSum << std::endl;
 			for (int i = 0; i < countSum; i++) {
 				std::cout << text;
 			}
 			std::cout << std::endl;
 		} //end if
 	} //end while loop
-	inFile.close();
+	inFile.close(); //close data.csv
 	return 0;
 } //end main
