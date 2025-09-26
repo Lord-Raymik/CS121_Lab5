@@ -1,11 +1,14 @@
-# Algorithm Documentation for FileIO
+r# Algorithm Documentation for FileIO
 
 ### Necessary Variables
 ifstream inFile
 stringstream converter
-sting item
-int number
+stringstream ss
+string currentLine
 string text
+string sCount
+int count1
+int count2
 
 ### Algorithm for Main()
 open data.csv with inFile
@@ -14,12 +17,15 @@ while keepGoing
     if (inFile.eof() == true)
         keepGoing = false
     else
-        getLine(inFile, item, ",")
-        use converter to turn the current token into an int
-        add the new int to number
-        do the same thing for the second token
-        getLine(inFile, item, ",")
-        assign the new string token to text
-        print out text to the console number times with an end line character at the end
-        set number to 0
+        getline(inFile, currentLine)
+        pass currentLine into ss
+        getline(ss, sNumber, ",")
+        put sNumber into converter
+        pass the int in converter into count1
+        repeat the process form the last getline, only put the int into count2 instead
+        getline(ss, text)
+        print text to the console a number of times equal to the sum of count1 and count2
 close inFile
+return 0
+
+### BTW EVERYTHING IS NOT WORKING AT THE MOMENT POSSIBLY DUE TO WHITESPACE BEFORE THE SECOND INT, WILL NEED FIXING BEFORE ANYTHIGN ELSE IS DONE
