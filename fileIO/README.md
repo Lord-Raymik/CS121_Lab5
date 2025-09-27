@@ -1,4 +1,4 @@
-r# Algorithm Documentation for FileIO
+# Algorithm Documentation for FileIO
 
 ### Necessary Variables
 ifstream inFile
