@@ -7,43 +7,37 @@ int main() {
 	//the variables used in main()
 	std::ifstream inFile;
 	std::stringstream converter;
-	std::stringstream ss;
 	std::string currentLine;
 	std::string text;
-	std::string sCount;
-	int count1;
-	int count2;
-	int countSum;
+	std::string sNum1;
+	std::string sNum2;
+	int num1;
+	int num2;
+	int sum;
 
 	//the main algorithm
 	inFile.open("data.csv"); //open data.csv
-	bool keepGoing = true;
-	while (keepGoing) {
-		//cleaning out the converter
+	while (getline(inFile, currentLine)) {
+		//cleaning out the converter just in case
 		converter.clear();
 		converter.str("");
-		if (inFile.eof() == true) {
-			keepGoing = false;
-		} else {
-			keepGoing = false;
-			getline(inFile, currentLine);
-			ss.str(currentLine);
 
-			getline(ss, sCount, ',');
-			converter.str(sCount);
-			converter >> count1;
-			getline(ss, sCount, ',');
-			converter.str(sCount);
-			converter >> count2;
-			std::cout << count2 << std::endl;
+		converter.str(currentLine);
 
-			getline(ss, text);
-			countSum = count1 + count2;
-			for (int i = 0; i < countSum; i++) {
-				std::cout << text;
-			}
-			std::cout << std::endl;
-		} //end if
+		getline(converter, sNum1, ',');
+		getline(converter, sNum2, ',');
+		getline(converter, text);
+
+		converter.clear();
+		converter.str("");
+		converter << sNum1 << " " << sNum2;
+		converter >> num1 >> num2;
+		sum = num1 + num2;
+
+		for (int i = 0; i < sum; i++) {
+			std::cout << text;
+		}
+		std::cout << std::endl;
 	} //end while loop
 	inFile.close(); //close data.csv
 	return 0;
